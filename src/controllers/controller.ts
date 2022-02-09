@@ -1,32 +1,22 @@
 import { Controller, Get, Route, Tags } from 'tsoa'
 
-export interface Option {
-  id: string
-  name: string
-}
+// with the controller as is, tsoa fails
+// if you remove any item in the union type it succeeds
 
 type LargeUnionType =
   { type: 'step-identify' }
-  | { type: 'step-add-address', siret: null | string, address: null | string }
-  | { type: 'step-verify-address', address: string }
+  | { type: 'step-add-address' }
+  | { type: 'step-verify-address' }
   | { type: 'step-add-naf-code' }
-  | { type: 'step-verify-naf-code', nafCode: null | string }
-  | { type: 'step-add-activity', activities: Option[], activity: null | string }
-  | { type: 'step-add-employee-count', employeeCountRanges: Option[], employeeCountRange: null | string }
-  | { type: 'step-add-revenue', revenueRanges: Option[], revenueRange: null | string }
-  | { type: 'step-add-occupation', occupationStatuses: Option[], occupationStatus: null | string }
-  | { type: 'step-add-surface', surfaceRanges: Option[], surfaceRange: null | string }
-  |
-  {
-    type: 'step-add-place-extra',
-    incidentCountRanges: Option[],
-    inHistoricalBuilding: null | boolean,
-    closesLate: null | boolean,
-    inCommercialComplex: null | boolean,
-    incidentCountRange: null | string
-  }
-  | { type: 'step-add-prevention-extra', hasCheckout: null | boolean, hasAntiTheft: null | boolean, hasFirePrevention: null | boolean }
-  | { type: 'step-add-email', email: null | string, hasAccepted: null | boolean }
+  | { type: 'step-verify-naf-code' }
+  | { type: 'step-add-activity' }
+  | { type: 'step-add-employee-count' }
+  | { type: 'step-add-revenue' }
+  | { type: 'step-add-occupation' }
+  | { type: 'step-add-surface' }
+  | { type: 'step-add-place-extra' }
+  | { type: 'step-add-prevention-extra' }
+  | { type: 'step-add-email' }
 
 type LargeUnionTypeReference = LargeUnionType['type']
 
