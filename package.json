@@ -1,0 +1,15 @@
+{
+  "name": "reproduce-tsoa-issue",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "tsoa": "tsoa spec-and-routes"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "tsoa": "^3.14.1"
+  }
+}
